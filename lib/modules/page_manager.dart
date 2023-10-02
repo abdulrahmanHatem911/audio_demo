@@ -32,17 +32,14 @@ class PageManager {
 
   Future<void> _loadPlaylist() async {
     final songRepository = getIt<PlaylistRepository>();
-    final playlist = await songRepository.fetchInitialPlaylist();
+    final playlist = songRepository.fetchInitialPlaylist();
     final mediaItems = playlist
         .map((song) => MediaItem(
-              id: song['id'] ?? '',
-              album: song['album'] ?? '',
-              title: song['title'] ?? '',
-              extras: {'url': song['url']},
-              artUri: song['artUri']?.isNotEmpty == true
-                  ? Uri.parse(song['artUri']!)
-                  : null,
-            ))
+            id: song.id ?? '',
+            album: song.album ?? '',
+            title: song.name ?? '',
+            extras: {'url': song.url},
+            artUri: Uri.parse("https://picsum.photos/seed/${song.id}/300/300")))
         .toList();
     print('✅mediaItems: $mediaItems');
     _audioHandler.addQueueItems(mediaItems);
@@ -186,5 +183,10 @@ class PageManager {
 
   void stop() {
     _audioHandler.stop();
+  }
+
+  // make function to change the current index of the playlist to skip to a song
+  void skipToQueueItem(int index) {
+    _audioHandler.skipToQueueItem(index);
   }
 }

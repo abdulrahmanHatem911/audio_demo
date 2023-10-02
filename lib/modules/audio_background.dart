@@ -76,6 +76,9 @@ class Playlist extends StatelessWidget {
             itemCount: playlistTitles.length,
             itemBuilder: (context, index) {
               return ListTile(
+                onTap: () {
+                  pageManager.skipToQueueItem(index);
+                },
                 title: Text(playlistTitles[index]),
               );
             },
