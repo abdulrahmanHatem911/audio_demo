@@ -22,7 +22,7 @@ Here are the libraries used in the project:
 
 | Library               | Description                                                                          | Link                                                            |
 | --------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
-| UST audio library     | A powerful library for handling audio, providing various sound manipulation options. | [UST audio library](https://ust.audio/)                         |
+| Just Audio     | A powerful library for handling audio, providing various sound manipulation options. | [just audio library](https://pub.dev/packages/just_audio)                         |
 | Audio service library | Enables background audio playback, allowing the app to run while in the background.  | [Audio service library](https://pub.dev/packages/audio_service) |
 
 ## Installation
